@@ -1,0 +1,6 @@
+mixin party_window()
+    #party_window
+        ul(v-if='spirits.length') party:
+            li(v-for='spirit in spirits')
+                span {{spirit.name}}
+                span {{spirit.hp}}

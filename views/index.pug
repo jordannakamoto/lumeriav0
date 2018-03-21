@@ -1,0 +1,23 @@
+extends layout
+
+include ./mixins/party_window
+include ./mixins/chat_window
+
+block css
+  link(rel='stylesheet', href='/stylesheets/chat.css')
+
+block content
+  p Welcome to #{title}
+  +party_window
+  +chat_window
+  
+
+block scripts
+  script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js')
+  script(src="/socket.io/socket.io.js")
+  script var socket = io.connect();
+  
+  script(src="/javascripts/chat.js")
+  script(src="/javascripts/battle.js")
+  script(src="/javascripts/party.js")

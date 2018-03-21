@@ -1,0 +1,17 @@
+/* chat css */
+#chat_window{
+    border: solid 1px blue;
+    padding: 20px;
+}
+#message_body{
+    height: 100px; overflow-y: auto;
+}
+
+#message_body ul{
+    margin: 0;
+}
+
+#chat_window li{
+    list-style: none;
+}
+
