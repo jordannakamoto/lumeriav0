@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Spirit = require('../models/Spirit')
 
 /* mongoose */
 var mongoose = require('mongoose');
@@ -7,14 +8,6 @@ mongoose.connect('mongodb://Vishnu:aloogobi@ds012578.mlab.com:12578/lumeria_crea
 
 var db = mongoose.connection;
 
-    
-    var spiritSchema = mongoose.Schema;
-    
-    var Spirit = mongoose.model('Spirit', new spiritSchema({}),'gen1')
-    
-    Spirit.find({'name':'jordan'}, function (err, spirits){
-        console.log(spirits);
-    })
 
 /* socket */
 var socket = function(io) {
@@ -34,7 +27,32 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'lumeria' });
 });
 
+/* GET home page. */
+router.get('/test', function(req, res, next) {
+  res.send(summons);
+});
 
+
+function search(name){
+   var query = Spirit.find({ "name" : name}).lean();
+   return query;
+}
+var summons = [];
+var player_summons = ["jordan","carlos","chani"];
+var team2_summons = ["hog"];
+for(var i = 0; i < player_summons.length; i++){
+    search(player_summons[i]).then(function (doc){
+    var test = doc[0];
+    test.team = 'player';
+    summons.push(test);
+    })
+}
+for(var i = 0; i < team2_summons.length; i++){
+    search(team2_summons[i]).then(function (doc){
+    doc[0].team = 'team2';
+    summons.push(doc[0]);
+    })
+}
 
 module.exports = router;
 module.exports = socket;
