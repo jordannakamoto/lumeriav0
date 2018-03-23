@@ -5,9 +5,10 @@ var party = new Vue({
         spirits: [],
     },
     methods: {
-        new_spirit: function(name){
-            var spirit = {name: name};
-            this.spirits.push(spirit);
+        new_spirit: function(spirit){
+            var newSpirit = {name: spirit.name, max_hp: spirit.stats.hp, hp: spirit.stats.hp, stats: spirit.stats, team: spirit.team, abilities: spirit.abilities};
+            this.spirits.push(newSpirit);
+            test.push(newSpirit);
         },
     }
 })

@@ -6,3 +6,41 @@ body {
 a {
   color: #00B7FF;
 }
+
+#wrapper2{
+  display: flex;
+}
+
+#wrapper1{
+  display: flex;
+}
+
+#wrapper1 div{
+  width: 50%;
+}
+
+#turn_wheel ul{
+  display: flex;
+}
+
+#turn_wheel li{
+  list-style: none;
+  padding: 10px;
+}
+
+#activePawn {
+  height: 120px;
+  width: 400px;
+  border: solid 1px grey;
+}
+
+#activePawn .top {
+  height: 50px;
+}
+
+#message_body .victory {
+  color: green;
+}
+#message_body .enemy_attack {
+  color: red;
+}

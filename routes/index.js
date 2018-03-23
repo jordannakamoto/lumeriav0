@@ -39,7 +39,7 @@ function search(name){
 }
 var summons = [];
 var player_summons = ["jordan","carlos","chani"];
-var team2_summons = ["hog"];
+var team2_summons = ["hog","hog","hog"];
 for(var i = 0; i < player_summons.length; i++){
     search(player_summons[i]).then(function (doc){
     var test = doc[0];

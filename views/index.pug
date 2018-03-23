@@ -1,15 +1,22 @@
 extends layout
 
 include ./mixins/party_window
+include ./mixins/enemy_window
 include ./mixins/chat_window
+include ./mixins/turn_wheel
 
 block css
   link(rel='stylesheet', href='/stylesheets/chat.css')
 
 block content
   p Welcome to #{title}
-  +party_window
-  +chat_window
+  #wrapper2
+    #wrapper1
+      +party_window
+      +enemy_window
+    div
+      +chat_window
+      +turn_wheel
   
 
 block scripts
@@ -19,5 +26,8 @@ block scripts
   script var socket = io.connect();
   
   script(src="/javascripts/chat.js")
-  script(src="/javascripts/battle.js")
   script(src="/javascripts/party.js")
+  script(src="/javascripts/team2.js")
+  script(src="/javascripts/battle.js")
+  script(src='/javascripts/enemy/basic_opponent.js')
+  script(src='/javascripts/turn_wheel.js')

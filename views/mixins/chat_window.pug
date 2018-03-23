@@ -2,4 +2,4 @@ mixin chat_window()
     #chat_window
         #message_body
             ul(v-if='messages.length')
-                li(v-for='message in messages') {{message.text}}
+                li(v-bind:class="message.tag" v-for='message in messages') {{message.text}}

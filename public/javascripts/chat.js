@@ -9,7 +9,7 @@ var chat = new Vue({
     },
     methods: {
         post_message: function(tag,string){
-            var message = {time: Date.now(), text: string};
+            var message = {time: Date.now(), text: string, tag: tag};
             this.messages[messages_count] = message;
             this.update_messages();
             this.$forceUpdate();
@@ -25,6 +25,11 @@ var chat = new Vue({
         update_scroll: function(){
             var container = this.$el.querySelector("#message_body");
             container.scrollTop = container.scrollHeight;
+        }
+    },
+    computed: {
+        revMessages: function(){
+            return this.messages.slice().reverse();
         }
     }
 })

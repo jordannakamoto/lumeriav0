@@ -1,0 +1,14 @@
+mixin turn_wheel()
+    #turn_wheel
+        ul(v-if='pawns.length')
+            #activePawn
+                .top 
+                    h3(v-if="activePawn.team == 'team2'") ENEMY
+                    span {{activePawn.name}}{{activePawn.stats}}
+                .bottom
+                    div abilities:
+                        li()
+                            div(v-if="activePawn.team == 'team2'") {{activePawn.abilities}}
+                            button(v-if="activePawn.team == 'player'" onclick="Battle.attack(turn_wheel.activePawn,team2.spirits[0]); turn_wheel.next()" v-for='ability in activePawn.abilities') {{ability}}
+            span next
+            li(v-for='pawn in pawns') {{pawn.name}}
