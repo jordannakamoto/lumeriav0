@@ -1,6 +1,5 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Inconsolata", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -9,14 +8,29 @@ a {
 
 #wrapper2{
   display: flex;
+  flex-direction: column;
+  height: 448px;
 }
 
 #wrapper1{
+  padding: 20px;
   display: flex;
+}
+
+#wrapper2 ul{
+  margin: 0;
+  list-style: none;
+}
+#wrapper1 ul{
+  width: 100px;
 }
 
 #wrapper1 div{
   width: 50%;
+}
+
+#wrapper3{
+  display: flex;
 }
 
 #turn_wheel ul{

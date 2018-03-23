@@ -4,25 +4,27 @@ include ./mixins/party_window
 include ./mixins/enemy_window
 include ./mixins/chat_window
 include ./mixins/turn_wheel
+include ./mixins/vendor_scripts
 
 block css
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Inconsolata')
   link(rel='stylesheet', href='/stylesheets/chat.css')
 
 block content
   p Welcome to #{title}
-  #wrapper2
-    #wrapper1
-      +party_window
-      +enemy_window
-    div
+  #wrapper3
+    #stage
+    #wrapper2
+      #wrapper1
+        +party_window
+        +enemy_window
       +chat_window
-      +turn_wheel
+  div
+    +turn_wheel
   
 
 block scripts
-  script(src='https://code.jquery.com/jquery-3.3.1.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js')
-  script(src="/socket.io/socket.io.js")
+  +vendor_scripts
   script var socket = io.connect();
   
   script(src="/javascripts/chat.js")
@@ -31,3 +33,5 @@ block scripts
   script(src="/javascripts/battle.js")
   script(src='/javascripts/enemy/basic_opponent.js')
   script(src='/javascripts/turn_wheel.js')
+  
+  script(src='/javascripts/stage/stage.js')
