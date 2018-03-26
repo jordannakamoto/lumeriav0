@@ -24,7 +24,7 @@ var socket = function(io) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'lumeria' });
+  res.render('index', { title: 'Battle in the Sands' });
 });
 
 /* GET home page. */

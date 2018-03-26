@@ -4,11 +4,15 @@ mixin turn_wheel()
             #activePawn
                 .top 
                     h3(v-if="activePawn.team == 'team2'") ENEMY
-                    span {{activePawn.name}}{{activePawn.stats}}
+                    span {{activePawn.name}}
+                    span.hidden {{activePawn.stats}}
                 .bottom
-                    div abilities:
-                        li()
-                            div(v-if="activePawn.team == 'team2'") {{activePawn.abilities}}
-                            button(v-if="activePawn.team == 'player'" onclick="Battle.attack(turn_wheel.activePawn,team2.spirits[0]); turn_wheel.next()" v-for='ability in activePawn.abilities') {{ability}}
-            span next
-            li(v-for='pawn in pawns') {{pawn.name}}
+                    div
+                        .title abilities:
+                        div(v-if="activePawn.team == 'team2'") {{activePawn.abilities}}
+                        div#spell_wrapper(v-if="activePawn.team == 'player'")
+                                button.spell_btn(onclick="PubSub.publish('GAME STATE', 'Targetting Mode');spellActivate('#spell0')" v-for='(ability,index) in activePawn.abilities' v-bind:id='"spell" + index') {{ability}}
+            #pawnLineup
+                span next
+                ul
+                    li(v-for='pawn in pawns') {{pawn.name}}

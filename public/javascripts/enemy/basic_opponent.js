@@ -6,6 +6,7 @@ var basic_opponent = {
     "target": '',
     "attack": function(activePawn){
         Battle.attack(activePawn,this.target);
+        removeActive(); 
         turn_wheel.next();
     },
     "defend": function(){

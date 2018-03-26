@@ -1,9 +1,16 @@
 body {
+  /*cursor: url('http://cur.cursors-4u.net/games/gam-13/gam1232.png'), auto !important;*/
   font: 14px "Inconsolata", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 #wrapper2{
@@ -17,10 +24,6 @@ a {
   display: flex;
 }
 
-#wrapper2 ul{
-  margin: 0;
-  list-style: none;
-}
 #wrapper1 ul{
   width: 100px;
 }
@@ -43,13 +46,27 @@ a {
 }
 
 #activePawn {
-  height: 120px;
+  height: 110px;
   width: 400px;
-  border: solid 1px grey;
+  border: solid 1px #cbcbcb;
+  margin-right: 20px;
+  padding: 12px;
+  transition: all 1s ease;
+  animation: activePawnBox 1s;
 }
 
 #activePawn .top {
-  height: 50px;
+  height: 30px;
+}
+
+#activePawn .title {
+  font-size: 12px;
+  margin-left: -2px;
+  padding-bottom: 14px;
+}
+
+#pawnLineup {
+  padding-top: 20px;
 }
 
 #message_body .victory {
@@ -57,4 +74,84 @@ a {
 }
 #message_body .enemy_attack {
   color: red;
+}
+
+#spell_wrapper{
+  display: flex;
+  padding: 4px;
+}
+
+.spell_btn{
+  transition: all .5s ease;
+  outline: none;
+  text-align: left;
+  overflow: wrap;
+  background: none;
+  border: solid 1px #e1e1e1;
+  width: 70px;
+  height: 40px;
+  margin-right: 10px;
+  position: relative;
+}
+.spell_btn.active{
+  border-color: #f3f3f3;
+  transform: translateY(-4px);
+}
+#spell_wrapper .dot {
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  animation: btn_orbit 2s infinite linear;
+}
+
+#spell_wrapper .active .dot::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: #0073e6;
+  animation: btn_orbit;
+}
+
+.testerino {
+  cursor: url('/images/sword_cursor.png'), auto !important;
+}
+
+@keyframes btn_orbit {
+  0%{
+    animation: ease-out;
+    transform: scale(.7);
+  }
+  25% {
+    transform: translateX(72px);
+  }
+  50% {
+    transform: translate(72px,42px);
+  }
+  75% {
+    opacity: .8;
+    transform: translateY(42px);
+  }
+  100% {
+    opacity: .4;
+    animation: ease-in;
+  }
+}
+
+@keyframes activePawnBox {
+  0%{
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+  
+/*      */
+/* TEMP */
+/*      */
+
+.hidden{
+  display: none;
 }

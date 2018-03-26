@@ -18,10 +18,11 @@ $(window).on("load",function(){
 var Battle = {
     start : function(){
         chat.post_message("battle", " -- battle started --");
+        PubSub.publish('GAME STATE', 'Battle Start');
     },
     load_pawns : function(){
         // sort by name
-        setTimeout(function(){console.log(spdSort('stats.spd',test));},200);
+        setTimeout(function(){console.log(spdSort('stats.spd',test));},300);
         setTimeout(function(){Battle.remaining_enemies = team2.spirits.length;},1000);
     },
     attack : function(attacker,defender){

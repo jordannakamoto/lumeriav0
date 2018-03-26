@@ -1,6 +1,7 @@
 /* chat css */
 #chat_window{
-    border: solid 1px blue;
+    border: solid 1px #cbcbcb;
+    margin-left: 10px;
     padding: 20px;
 }
 #message_body{

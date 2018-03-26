@@ -3,17 +3,27 @@ var team2 = new Vue({
     data: {
         spirit: '',
         spirits: [],
+        avatars: [],
     },
     methods: {
         new_spirit: function(spirit){
             var newSpirit = {name: spirit.name, max_hp: spirit.stats.hp, hp: spirit.stats.hp,stats: spirit.stats, team: spirit.team, abilities: spirit.abilities};
             this.spirits.push(newSpirit);
-            test.push(newSpirit);
-            let test5  = new PIXI.Sprite.fromImage(spirit.sprite);
-            test5.texture.baseTexture.on('loaded', function(){
-                test5.x = Math.floor(Math.random() * (app.screen.width - test5.width));
-                test5.y = Math.floor(Math.random() * (app.screen.height - test5.height));
-                app.stage.addChild(test5);});
+            newSpirit.avatar = pixifySpirit(spirit,team2);
+            test.push(newSpirit); //main deck push codename test
         },
     }
 })
+
+function pixifySpirit(spirit,team){
+    let newAvatar  = new PIXI.Sprite.fromImage(spirit.sprite);
+    newAvatar.interactive = true;
+    newAvatar.parentGroup = pawnsLayer;
+    newAvatar.texture.baseTexture.on('loaded', function(){
+        newAvatar.x = Math.floor(Math.random() * (app.screen.width - newAvatar.width));
+        newAvatar.y = Math.floor(Math.random() * (app.screen.height - newAvatar.height));
+        app.stage.addChild(newAvatar);
+        team.avatars.push(newAvatar);
+    });
+    return newAvatar
+}

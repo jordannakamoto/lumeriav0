@@ -11,7 +11,7 @@ block css
   link(rel='stylesheet', href='/stylesheets/chat.css')
 
 block content
-  p Welcome to #{title}
+  p Ch. 1: Episode 1 #{title}
   #wrapper3
     #stage
     #wrapper2
@@ -30,8 +30,13 @@ block scripts
   script(src="/javascripts/chat.js")
   script(src="/javascripts/party.js")
   script(src="/javascripts/team2.js")
+  script(src='/javascripts/input/pinput.js')
+  script(src='/javascripts/pubsub.js')
+  script(src='/javascripts/board/game.js')
   script(src="/javascripts/battle.js")
   script(src='/javascripts/enemy/basic_opponent.js')
   script(src='/javascripts/turn_wheel.js')
   
-  script(src='/javascripts/stage/stage.js')
+  
+  script(src='/javascripts/board/stage.js')
+  script(src='/javascripts/preloader.js')
