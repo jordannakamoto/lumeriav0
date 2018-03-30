@@ -2,11 +2,11 @@ var test = [];
 
 /* get summons from server */
 
-$.get( "/test", function( summons_data ) {
-            for(var i = 0; i < summons_data.length; i++){
-                if(summons_data[i].team == "player"){
-                    party.new_spirit(summons_data[i]);
-                }else{team2.new_spirit(summons_data[i])}
+$.get( "/test", function( data ) {
+            for(var i = 0; i < data.length; i++){
+                if(data[i].team == "player"){
+                    party.new_spirit(data[i]);
+                }else{team2.new_spirit(data[i])}
             }
 });
 
