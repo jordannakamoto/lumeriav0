@@ -9,6 +9,8 @@ $('#stage').append(app.view);
 
 app.renderer.backgroundColor = 0xf2e2b5;
 
+var mouse = app.renderer.plugins.interaction.mouse.global;
+
 var pawnsLayer = new PIXI.display.Group(0, true);
 pawnsLayer.on('sort', function (sprite) {
     sprite.zOrder = -sprite.y;

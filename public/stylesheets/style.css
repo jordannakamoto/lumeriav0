@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "omniblack";
+  src: url(/fonts/OMNIBLACKOutline.ttf) format("truetype");
+}
+
 body {
   /*cursor: url('http://cur.cursors-4u.net/games/gam-13/gam1232.png'), auto !important;*/
   font: 14px "Inconsolata", Helvetica, Arial, sans-serif;
@@ -33,7 +38,17 @@ ul{
 }
 
 #wrapper3{
+  position: relative;
   display: flex;
+}
+
+#hits span {
+  background: white;
+  border-radius: 4px;
+  padding: 0px 2px;
+  font-size: 18px;
+  font-family: 'omniblack';
+  position: absolute;
 }
 
 #turn_wheel ul{

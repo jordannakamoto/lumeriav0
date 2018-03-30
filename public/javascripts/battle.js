@@ -32,8 +32,34 @@ var Battle = {
             defender.hp -= damage;
         }else{
             damage = 1;
-            defender.hp -= 1;
+            defender.hp -= damage;
         }
+        
+            var img = $('<span>'+ damage +'</span>');
+            if(attacker.team === "player"){
+                $("#hits").html(img).offset({ top: mouse.y - 12 , left: mouse.x - 2});}
+            if(attacker.team === "team2"){
+                $("#hits").html(img).offset({ top: defender.avatar.y - 4 , left: defender.avatar.x + 16});}
+            
+            const { easing, keyframes, styler } = window.popmotion;
+
+            const test4 = styler(document.querySelector('#hits'));
+            var test2 = 5 * Math.random();
+            var test3 = -2 * Math.random();
+            var test59 = -4 + (8 * Math.random());
+            
+            keyframes({
+              values: [
+                { x: -5 + (10 * Math.random()), y: 5 + (10 * Math.random()), rotate: 0, opacity: 1},
+                { x: (test2) , y: (test3), rotate: test59, opacity: 1 },
+                {x: (test2 + 1), y: (test3 -14), rotate: test59, opacity: 0}
+              ],
+              duration: 1300,
+              times: [0, 0.9, 1],
+              ease: easing.cubicBezier(.25,1.23,.98,1.26),
+            }).start(test4.set);
+            
+    
         if(attacker.team == "team2"){
             msg = "enemy_attack"
         }
