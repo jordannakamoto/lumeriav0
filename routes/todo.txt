@@ -1,0 +1,16 @@
+index route contains mongoose code,
+will probably want to move this to its own directory for other data channels / API
+
+considering writing a middleware function to handle the seperate API files
+
+router.get('/summons', ***middleware*** ,function(req, res, next) {
+});
+
+middleware{
+  makes calls to database which has already been queried.
+  query uses lazy loading of the next tree level but caches what it can
+    -perhaps check last login date and track changes since
+      last_modified > last_login
+    -save lookups to localdb and run refresh on the changes? with minimongo
+    -would need to write a module to perform the queries and update locally
+}
